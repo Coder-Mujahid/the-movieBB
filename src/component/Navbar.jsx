@@ -7,7 +7,7 @@ const Navbar = () => {
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
-  const toggDropDown = () => {
+  const togglDropDown = () => {
     setisDrop(!isDrop);
   };
 
@@ -39,13 +39,13 @@ const Navbar = () => {
             </li>
           {/* small device */}
             <li className="nav-item block lg:hidden ">
-              <a onClick={toggDropDown} href="#" className="text-white py-2 px-4">movies</a>
+              <a onClick={togglDropDown} href="#" className="text-white py-2 text-lg px-4">movies</a>
             </li>
             <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
-                  <a className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer</a>
-                  <a className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">now playing </a>
-                  <a className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">upcoming </a>
-                  <a className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">top rated </a>
+                  <a onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer</a>
+                  <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">now playing </a>
+                  <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">upcoming </a>
+                  <a onClick={toggleNavbar}  className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">top rated </a>
             </li>
 
 
@@ -62,13 +62,13 @@ const Navbar = () => {
             </li>
           {/* small device */}
             <li className="nav-item block lg:hidden ">
-              <a onClick={toggDropDown} href="#" className="text-white py-2 px-4">TV shows</a>
+              <a onClick={togglDropDown} href="#" className="text-white py-2 text-lg px-4">TV shows</a>
             </li>
             <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
-                  <a className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer</a>
-                  <a className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">airing today </a>
-                  <a className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">on TV </a>
-                  <a className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">top rated </a>
+                  <a onClick={toggleNavbar}  className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer</a>
+                  <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">airing today </a>
+                  <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">on TV </a>
+                  <a onClick={toggleNavbar}  className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">top rated </a>
             </li>
 
           {/* multi device nav item people */}
@@ -79,12 +79,12 @@ const Navbar = () => {
                 <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">populer people</a></li>
               </ul>
             </li>
-          
+          {/* small device */}
             <li className="nav-item block lg:hidden ">
-              <a onClick={toggDropDown} href="#" className="text-white py-2 px-4">people</a>
+              <a onClick={togglDropDown} href="#" className="text-white text-lg py-2 px-4">people</a>
             </li>
             <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
-                  <a className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer people</a>
+                  <a onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer people</a>
             </li>
 
             <li className="nav-item hidden lg:block">
@@ -113,7 +113,7 @@ const Navbar = () => {
           <span className="indicator-item badge badge-error px-[6px] py-0 m-0 text-[10px] rounded-full text-white font-bold">5</span> 
           <i className='bx bxs-bell text-white text-2xl' ></i>
         </div>
-        <li className=' px-3 py-2 bg-red-600 rounded-full'>M</li>
+        <li className=' px-3 py-2 bg-red-600 rounded-full font-semibold text-white'>M</li>
         <li className='flex items-center justify-center'><i className='bx bx-search-alt-2 text-3xl text-[#01B4E4]' ></i></li>
       </ul>
     </nav>
