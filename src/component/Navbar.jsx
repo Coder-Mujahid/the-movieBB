@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +13,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#032541] lg:px-8 px-6 py-4  flex items-center">
+    <nav className="bg-[#032541] lg:px-8 px-6 py-4  flex items-center ">
       <div className="container mx-auto flex flex-row-reverse lg:flex-row lg:gap-10 gap-5 md:gap-4 items-center justify-end lg:justify-start">
-        <img className=' max-w-36 hidden md:block' src="https://i.ibb.co/sKGczFV/logo.png" alt="logo" />
-        <img className=' max-w-8 block md:hidden' src="https://i.ibb.co/6vY9szx/favIcon.png" alt="logo" />
+        <Link to={"/"}><img className=' max-w-36 hidden md:block' src="https://i.ibb.co/sKGczFV/logo.png" alt="logo" /></Link>
+        <Link to={"/"}><img className=' max-w-8 block md:hidden' src="https://i.ibb.co/6vY9szx/favIcon.png" alt="logo" /></Link>
         <div className="lg:hidden">
           <button
             onClick={toggleNavbar}
@@ -24,14 +25,14 @@ const Navbar = () => {
             {isOpen ? <i className='bx bx-x'></i> : <i className='bx bx-menu'></i>}
           </button>
         </div>
-        <div className={`lg:flex items-center capitalize space-x-4 ${isOpen ? 'fixed top-[70px] left-0 h-screen w-64 bg-[#072B48] transition-transform transform translate-x-0' : 'hidden'}`}>
+        <div className={`lg:flex z-10 items-center capitalize space-x-4 ${isOpen ? 'fixed top-[70px] left-0 h-screen w-64 bg-[#072B48] transition-transform transform translate-x-0' : 'hidden'}`}>
           <ul className="flex gap-4 lg:gap-0 flex-col lg:flex-row list-none text-sm font-semibold">
 
           {/* multi device nav item movies */}
             <li className="dropdown dropdown-hover hidden lg:block">
               <div tabIndex={0} role="button" className=" text-white px-4">movies</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box w-52">
-                <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">populer</a></li>
+                <li><Link className='text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold' to={"/Movies"}>populer</Link></li>
                 <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">now playing</a></li>
                 <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">upcoming</a></li>
                 <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">top rated </a></li>
@@ -42,7 +43,7 @@ const Navbar = () => {
               <a onClick={togglDropDown} href="#" className="text-white py-2 text-lg px-4">movies</a>
             </li>
             <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
-                  <a onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer</a>
+                  <Link onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium" to={"/Movies"}>populer</Link>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">now playing </a>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">upcoming </a>
                   <a onClick={toggleNavbar}  className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">top rated </a>
