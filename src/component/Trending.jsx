@@ -6,8 +6,8 @@ import { Pagination } from "swiper/modules";
 
 const Trending = () => {
   const [activeLink, setActiveLink] = useState(0);
-  const [today, settoday] = useState([]);
-  const [week, setweek] = useState([]);
+  const [today, setToday] = useState([]);
+  const [week, setWeek] = useState([]);
   const [data, setData] = useState([]);
 
   const todayData = () => {
@@ -20,50 +20,34 @@ const Trending = () => {
     setActiveLink(1);
   };
 
-
-
-
-
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzVmMmE0NGFlOTNhMDBhOTc2MGYwNDMzYTQ4N2Y1OCIsInN1YiI6IjY1YWJmZGYyYmQ1ODhiMDBjYTYxYTdjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.90310K5TloZPBE4igS_8O8cxiqQzQNMecaUDE0TbrsU'
+    const fetchTodayData = async () => {
+      try {
+        const response = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=275f2a44ae93a00a9760f0433a487f58');
+        const data = await response.json();
+        setToday(data.results || []);
+      } catch (error) {
+        console.error(error);
       }
     };
 
-    fetch('https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1', options)
-      .then(response => response.json())
-      .then(response => {
-        setweek(response.results);
-      })
-      .catch(err => console.error(err));
+    const fetchWeekData = async () => {
+      try {
+        const response = await fetch('https://api.themoviedb.org/3/tv/airing_today?api_key=275f2a44ae93a00a9760f0433a487f58');
+        const data = await response.json();
+        setWeek(data.results || []);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchTodayData();
+    fetchWeekData();
   }, []); 
-
-  console.log(today)
-
-
-  useEffect(() => {
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzVmMmE0NGFlOTNhMDBhOTc2MGYwNDMzYTQ4N2Y1OCIsInN1YiI6IjY1YWJmZGYyYmQ1ODhiMDBjYTYxYTdjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.90310K5TloZPBE4igS_8O8cxiqQzQNMecaUDE0TbrsU'
-        }
-      };
-      
-      fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
-        .then(response => response.json())
-        .then(response => settoday(response.results))
-        .catch(err => console.error(err));
-  }, []); 
-
   
-
-
-
-
+  useEffect(() => {
+    todayData();
+  }, [today]); 
 
   return (
     <div
@@ -106,9 +90,6 @@ const Trending = () => {
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
-            pagination={{
-              clickable: true,
-            }}
             breakpoints={{
               640: {
                 slidesPerView: 3,
@@ -127,7 +108,7 @@ const Trending = () => {
             className="mySwiper  h-52"
           >
             {data.map((item, index) => (
-                <SwiperSlide key={index} className="">
+              <SwiperSlide key={index} className="">
                 <img className="h-36" src={item.backdrop_path ? `https://image.tmdb.org/t/p/w500/${item.backdrop_path}` : 'placeholder-image-url'} alt="img" />
                 <h2 className="text-sm font-bold text-black">{item.name || item.title}</h2>
                 <h2 className="text-sm text-black">{item.first_air_date || item.release_date}</h2> 
