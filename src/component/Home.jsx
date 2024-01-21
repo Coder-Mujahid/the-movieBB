@@ -1,4 +1,6 @@
 import Hero from "./Hero";
+import LeaderBord from "./LeaderBord";
+import Populer from "./Populer";
 import Trending from "./Trending";
 
 
@@ -7,6 +9,8 @@ const Home = () => {
         <div>
             <Hero></Hero>
             <Trending></Trending>
+            <Populer></Populer>
+            <LeaderBord></LeaderBord>
         </div>
     );
 };

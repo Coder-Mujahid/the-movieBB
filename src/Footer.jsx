@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <div className=" bg-[#031F37]  ">
       <footer className="footer py-10 text-white mx-auto w-10/12">
-        <aside className=" flex flex-col items-center">
-        <img className=' max-w-56 hidden md:block' src="https://i.ibb.co/sKGczFV/logo.png" alt="logo" />
+        <aside className=" flex flex-col md:items-center">
+        <img className=' max-w-56 ' src="https://i.ibb.co/sKGczFV/logo.png" alt="logo" />
          <button className="px-6 py-2 text-xl font-semibold bg-white text-[#01B4E4] rounded-md">
             mujahid11 !
          </button>

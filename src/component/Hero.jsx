@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="w-full h-screen flex flex-col z-0">
+    <section className="w-full h-screen flex flex-col z-0 ">
       <div
         className="relative h-full flex flex-col items-start justify-center capitalize bg-cover bg-center"
         style={{
@@ -36,7 +36,7 @@ const Hero = () => {
       </div>
 
       <div
-        className="relative h-full flex flex-col items-start justify-center capitalize bg-cover bg-center"
+        className="relative h-full flex flex-col pb-5 items-start justify-center capitalize bg-cover bg-center"
         style={{
           backgroundImage:
             'radial-gradient(rgba(0,188,254,47), rgba(0, 0, 255, 0.5)), url("https://i.ibb.co/8cm1mym/banner-02.jpg")',
