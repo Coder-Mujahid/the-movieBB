@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const PopulerMovie = () => {
   const [selectedType, setSelectedType] = useState("type1");
@@ -21,11 +21,9 @@ const PopulerMovie = () => {
     fetchData(newSelectedType);
   };
 
-
   const handleItemClick = (item) => {
     navigate("/details", { state: { item: item } });
   };
-
 
   const fetchData = async (selectedType) => {
     try {
@@ -206,13 +204,13 @@ const PopulerMovie = () => {
       )}
 
       {selectedType === "type2" && (
-        <div className=" col-span-3">
-          <div className=" h-auto w-full md:grid gap-5 lg:grid-cols-5 md:grid-cols-3 items-center justify-between">
-          {data.map((item, index) => (
+        <div className="col-span-3">
+          <div className="h-auto w-full md:grid gap-5 lg:grid-cols-5 md:grid-cols-3 items-center justify-between">
+            {data.map((item, index) => (
               <div
                 key={index}
                 onClick={() => handleItemClick(item)}
-                className=" mb-4 md:mb-0 flex-row h-full flex md:flex-col md:justify-between rounded-md bg-slate-100 border-[1px] border-slate-200"
+                className="relative mb-4 md:mb-0 flex-row gap-5 h-full flex md:flex-col md:justify-between rounded-md bg-slate-100 border-[1px] border-slate-200"
               >
                 <img
                   className="md:min-h-60 w-28 md:w-full h-36 rounded-lg object-cover"
@@ -223,7 +221,21 @@ const PopulerMovie = () => {
                   }
                   alt="img"
                 />
-                <div className=" px-3 pb-3 flex flex-col gap-1 items-start justify-center md:justify-start w-full">
+                {/* rating bar creating problem for image width */}
+                {/* <div className="absolute bottom-14 -left-14 w-full text-center">
+                  <div
+                    className="w-8 h-8 radial-progress bg-[#081C22] text-xs text-white border-4 border-[#081C22]"
+                    style={{
+                      "--value": 70,
+                      display: "inline-block",
+                    }}
+                    role="progressbar"
+                  >
+                    70%
+                  </div>
+                </div> */}
+
+                <div className="px-3 pb-3 flex flex-col gap-1 items-start justify-center md:justify-start w-full">
                   <h2 className="text-sm font-bold text-black">
                     {item.name || item.title}
                   </h2>
@@ -237,8 +249,8 @@ const PopulerMovie = () => {
               </div>
             ))}
           </div>
-          <button className=" mt-5 w-full transition duration-300 bg-[#01B4E4] hover:bg-[#032541] text-white tracking-[2px] px-4 capitalize py-3 rounded-full font-bold ">
-            loead more
+          <button className="mt-5 w-full transition duration-300 bg-[#01B4E4] hover:bg-[#032541] text-white tracking-[2px] px-4 capitalize py-3 rounded-full font-bold ">
+            load more
           </button>
         </div>
       )}
