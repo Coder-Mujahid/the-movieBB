@@ -32,7 +32,7 @@ const Navbar = () => {
             <li className="dropdown dropdown-hover hidden lg:block">
               <div tabIndex={0} role="button" className=" text-white px-4">movies</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box w-52">
-                <li><Link className='text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold' to={"/Movies"}>populer</Link></li>
+                <li><Link className='text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold' to={"/PopulerMovie"}>populer</Link></li>
                 <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">now playing</a></li>
                 <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">upcoming</a></li>
                 <li><a className="text-black pb-2 px-4 lg:hover:bg-slate-100 text-xs font-semibold">top rated </a></li>
@@ -43,7 +43,7 @@ const Navbar = () => {
               <a onClick={togglDropDown} href="#" className="text-white py-2 text-lg px-4">movies</a>
             </li>
             <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
-                  <Link onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium" to={"/Movies"}>populer</Link>
+                  <Link onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium" to={"/PopulerMovie"}>populer</Link>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">now playing </a>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">upcoming </a>
                   <a onClick={toggleNavbar}  className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">top rated </a>

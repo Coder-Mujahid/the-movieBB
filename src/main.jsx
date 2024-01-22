@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './component/Home.jsx';
+import PopulerMovie from './component/PopulerMovie.jsx';
 
 
 
@@ -21,8 +22,8 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path:"/Movies",
-        element: <h2>this is hero section </h2>
+        path:"/PopulerMovie",
+        element: <PopulerMovie></PopulerMovie>
       },
     ]
   },
