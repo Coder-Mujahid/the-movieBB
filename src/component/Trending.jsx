@@ -118,7 +118,7 @@ const Trending = () => {
             className="mySwiper -mb-10 p-0"
           >
             {data.map((item, index) => (
-              <SwiperSlide key={index} className="h-auto ">
+              <SwiperSlide key={index} className="h-auto relative">
                 <div className="h-full flex flex-col justify-between gap-8">
                   <img
                     className="min-h-48 rounded-lg object-cover"
@@ -130,7 +130,7 @@ const Trending = () => {
                     alt="img"
                   />
 
-                  {/* <div
+                  <div
                     className="w-10 h-10 radial-progress absolute bg-[#081C22] text-primary-content text-xs border-[3px] border-[#081C22]"
                     style={{
                       "--value": 70,
@@ -141,7 +141,7 @@ const Trending = () => {
                     role="progressbar"
                   >
                     70%
-                  </div> */}
+                  </div>
                   <div>
                     <h2 className="text-sm font-bold text-black">
                       {item.name || item.title}

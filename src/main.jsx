@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './component/Home.jsx';
 import PopulerMovie from './component/PopulerMovie.jsx';
+import Details from './component/Details.jsx';
 
 
 
@@ -15,20 +16,23 @@ import PopulerMovie from './component/PopulerMovie.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App> ,
-    children:[
+    element: <App></App>,
+    children: [
       {
-        path:"/",
+        path: "/",
         element: <Home></Home>
       },
       {
-        path:"/PopulerMovie",
+        path: "/PopulerMovie",
         element: <PopulerMovie></PopulerMovie>
+      },
+      {
+        path: "/details",
+        element: <Details></Details>
       },
     ]
   },
 ]);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />

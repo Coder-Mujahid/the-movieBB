@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const PopulerMovie = () => {
   const [selectedType, setSelectedType] = useState("type1");
   const [isOpen, setIsOpen] = useState(false);
   const [isopen, setIsopen] = useState(false);
   const [data, setData] = useState([]);
-
+  const navigate = useNavigate();
   const toggleShort = () => {
     setIsOpen(!isOpen);
   };
@@ -19,6 +20,12 @@ const PopulerMovie = () => {
 
     fetchData(newSelectedType);
   };
+
+
+  const handleItemClick = (item) => {
+    navigate("/details", { state: { item: item } });
+  };
+
 
   const fetchData = async (selectedType) => {
     try {
@@ -39,7 +46,7 @@ const PopulerMovie = () => {
     fetchData(selectedType);
   }, [selectedType]);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="w-11/12 mx-auto py-8 md:grid gap-5 grid-cols-4 capitalize">
@@ -166,6 +173,7 @@ const PopulerMovie = () => {
             {data.map((item, index) => (
               <div
                 key={index}
+                onClick={() => handleItemClick(item)}
                 className=" mb-4 md:mb-0 flex-row h-full flex md:flex-col md:justify-between rounded-md bg-slate-100 border-[1px] border-slate-200"
               >
                 <img
@@ -184,8 +192,8 @@ const PopulerMovie = () => {
                   <h2 className="text-sm text-black">
                     {item.first_air_date || item.release_date}
                   </h2>
-                  <h2 className="text-sm text-black">
-                    retting {item.vote_average || item.release_date} ★
+                  <h2 className="text-sm block lg:hidden text-black">
+                    retting {item.vote_average} ★
                   </h2>
                 </div>
               </div>
@@ -200,9 +208,10 @@ const PopulerMovie = () => {
       {selectedType === "type2" && (
         <div className=" col-span-3">
           <div className=" h-auto w-full md:grid gap-5 lg:grid-cols-5 md:grid-cols-3 items-center justify-between">
-            {data.map((item, index) => (
+          {data.map((item, index) => (
               <div
                 key={index}
+                onClick={() => handleItemClick(item)}
                 className=" mb-4 md:mb-0 flex-row h-full flex md:flex-col md:justify-between rounded-md bg-slate-100 border-[1px] border-slate-200"
               >
                 <img
