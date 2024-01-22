@@ -36,8 +36,8 @@ Once the application is running, open your browser and navigate to `http://local
 
 ## Screenshots
 
-![Screenshot 1](link-to-screenshot-1.png)
-![Screenshot 2](link-to-screenshot-2.png)
+![Screenshot 1](https://i.ibb.co/qCNMh4D/preview-01.png)
+![Screenshot 2](https://i.ibb.co/bvTVt9F/preview-02.png)
 
 ## Contributing
 
