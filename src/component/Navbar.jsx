@@ -3,13 +3,24 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDrop, setisDrop] = useState(false);
+  const [ismovies, setismovies] = useState(false);
+  const [isTV, setisTV] = useState(false);
+  const [ispeople, setispeople] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
   const togglDropDown = () => {
     setisDrop(!isDrop);
+  };
+  const movies = () => {
+    setismovies(!ismovies);
+  };
+  const TV = () => {
+    setisTV(!isTV);
+  };
+  const people = () => {
+    setispeople(!ispeople);
   };
 
   return (
@@ -40,9 +51,9 @@ const Navbar = () => {
             </li>
           {/* small device */}
             <li className="nav-item block lg:hidden ">
-              <a onClick={togglDropDown} href="#" className="text-white py-2 text-lg px-4">movies</a>
+              <a onClick={movies} href="#" className="text-white py-2 text-lg px-4">movies</a>
             </li>
-            <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
+            <li className={`nav-item text-white flex flex-col ${ismovies ? ' block' : ' hidden'} `}>
                   <Link onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium" to={"/PopulerMovie"}>populer</Link>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">now playing </a>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">upcoming </a>
@@ -63,9 +74,9 @@ const Navbar = () => {
             </li>
           {/* small device */}
             <li className="nav-item block lg:hidden ">
-              <a onClick={togglDropDown} href="#" className="text-white py-2 text-lg px-4">TV shows</a>
+              <a onClick={TV} href="#" className="text-white py-2 text-lg px-4">TV shows</a>
             </li>
-            <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
+            <li className={`nav-item text-white flex flex-col ${isTV ? ' block' : ' hidden'} `}>
                   <a onClick={toggleNavbar}  className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer</a>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">airing today </a>
                   <a onClick={toggleNavbar}  className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">on TV </a>
@@ -82,9 +93,9 @@ const Navbar = () => {
             </li>
           {/* small device */}
             <li className="nav-item block lg:hidden ">
-              <a onClick={togglDropDown} href="#" className="text-white text-lg py-2 px-4">people</a>
+              <a onClick={people} href="#" className="text-white text-lg py-2 px-4">people</a>
             </li>
-            <li className={`nav-item text-white flex flex-col ${isDrop ? ' block' : ' hidden'} `}>
+            <li className={`nav-item text-white flex flex-col ${ispeople ? ' block' : ' hidden'} `}>
                   <a onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer people</a>
             </li>
 
@@ -93,10 +104,13 @@ const Navbar = () => {
             </li>
 
             <li className={`nav-item text-white flex flex-col block lg:hidden`}>
-                  <a className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">populer</a>
-                  <a className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">airing today </a>
-                  <a className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">on TV </a>
-                  <a className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">top rated </a>
+                  <a onClick={toggleNavbar} className="text-white pb-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">contribution bible</a>
+                  <a onClick={toggleNavbar} className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">discussions </a>
+                  <a onClick={toggleNavbar} className="text-white py-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">leaderbord</a>
+                  <a onClick={toggleNavbar} className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">API</a>
+                  <a onClick={toggleNavbar} className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">support</a>
+                  <a onClick={toggleNavbar} className="text-white pt-2 px-4 cursor-pointer lg:hover:bg-slate-100 text-xs font-medium">about</a>
+                  <a onClick={toggleNavbar} className="text-white pt-2 px-4 cursor-pointer my-3 lg:hover:bg-slate-100 text-sm font-bold">log out</a>
             </li>
 
 

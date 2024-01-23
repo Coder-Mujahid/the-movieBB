@@ -53,7 +53,7 @@ const Trending = () => {
     todayData();
   }, [today]);
 
-  console.log(today);
+  // console.log(today);
 
   return (
     <div

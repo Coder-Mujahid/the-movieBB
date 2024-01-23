@@ -11,7 +11,7 @@ const Populer = () => {
     const fetchTodayData = async () => {
       try {
         const response = await fetch(
-          "https://api.themoviedb.org/3/movie/now_playing?api_key=275f2a44ae93a00a9760f0433a487f58"
+          "https://api.themoviedb.org/3/trending/movie/day?api_key=275f2a44ae93a00a9760f0433a487f58"
         );
         const data = await response.json();
         setData(data.results || []);
@@ -27,7 +27,7 @@ const Populer = () => {
     <div className=" w-11/12 mx-auto py-6 bg-white">
         <div className="w-full flex flex-wrap font-bold items-center gap-5 my-5">
         <h2 className="text-2xl font-bold">What's Popular</h2>
-        <button className="px-4 w-full sm:w-auto py-1 sm:rounded-full bg-[#032541] text-white">In Theaters</button>
+        <button className="px-4 w-full sm:w-auto py-1 rounded-full bg-[#032541] text-white">In Theaters</button>
         </div>
 
       <div className="h-full w-full">
